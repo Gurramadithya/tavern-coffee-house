@@ -60,8 +60,6 @@ Tavern-Coffee-House/
 
 ├── website.css
 
-├── coffee.jpg
-
 └── README.md
 
 ```
