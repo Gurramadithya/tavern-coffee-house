@@ -28,6 +28,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo img {
@@ -550,4 +551,99 @@ footer {
 footer p {
     text-align: center;
     color: white;
+}
+
+
+/* Mobile version */
+
+
+@media (max-width:425px) {
+
+    .logo img {
+        height: 90px;
+    }
+
+    .links {
+        flex-direction: column;
+    }
+
+    .links a {
+        font-size: 11px;
+    }
+
+    main {
+        margin-top: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        font-size: 14px;
+    }
+
+    .btn-hero {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .btn-hero button {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .background-logo {
+        display: none;
+    }
+
+    .s2 h1 {
+        font-size: 2rem;
+    }
+
+    .s3 p {
+        font-size: 14px;
+    }
+
+    .sig1 {
+        width: 90%;
+    }
+
+    .bagtext h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .bagtext p {
+        font-size: 15px;
+    }
+
+    .cake-text h1 {
+        font-size: 2rem;
+    }
+
+    .cake-text h4 {
+        font-size: 1.1rem;
+    }
+
+    .left,
+    .right {
+        padding: 30px 20px;
+    }
+
+    .left h1,
+    .right h1 {
+        font-size: 1.8rem;
+    }
+
+    .ftr {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    footer p {
+        padding: 20px;
+        font-size: 13px;
+    }
 }

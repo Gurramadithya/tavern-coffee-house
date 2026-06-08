@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +16,6 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
 </head>
-
 
 <body>
     <header>
@@ -41,7 +39,7 @@
 
                 <a href="#" class="order-btn">ORDER ONLINE</a>
 
-                <a href="#" class="cart">🛒</a>
+                
             </div>
         </nav>
     </header>
@@ -68,6 +66,9 @@
                         alt="coffee image">
                 </div>
             </div>
+
+
+
         </section>
 
         <div class="background-logo">
@@ -121,10 +122,10 @@
 
         <section class="containerbag">
             <div class="bag">
-                <div class="bag-img">
+                <div class="bag-img" data-aos="fade-right" data-aos-duration="700">
                     <img src="https://thetaverncoffee.com/wp-content/uploads/2025/05/bagandbean.png" alt="">
                 </div>
-                <div class="bagtext">
+                <div class="bagtext" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                     <h1>Grab a Bag of our Best Brew!</h1>
                     <p>Take a piece of The Tavern home with you. Every 12oz bag of our in-house roasted signature coffee
                         fuels more than your morning — it powers job training, mentorship, and hope right here in
@@ -138,7 +139,7 @@
         </section>
         <section class="cake">
             <div class="cake-main">
-                <div class="cake-text">
+                <div class="cake-text" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200">
                     <h4>Baked Goods, Pastries, & Sandwiches</h4>
                     <h1>Better Together: The Tavern X Hunny Bunny's Bakery</h1>
                     <p>Every pastry we serve is handcrafted by Hunny Bunny Bakery, a local gem we’re proud to support.
@@ -149,7 +150,7 @@
                         <a href="">ORDER NOW-></a>
                     </div>
                 </div>
-                <div class="cakeimage">
+                <div class="cakeimage" data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
                     <img src="https://thetaverncoffee.com/wp-content/uploads/2025/05/muffinandcoffee.png" alt="cake">
                 </div>
             </div>
@@ -182,9 +183,6 @@
             </div>
         </section>
 
-
-
-        
         <footer>
             <div class="ftr">
                 <div class="flogo">
@@ -223,7 +221,9 @@
     <script>
         AOS.init({
             duration: 1200,
-            once: true
+            once: false,
+            mirror: true,
+            offset: 100
         });
     </script>
 
