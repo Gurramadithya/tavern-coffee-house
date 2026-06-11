@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -7,11 +8,27 @@
 html,
 body {
     scroll-behavior: smooth;
-    overflow-x: hidden;
+    overflow-x: hidden;   /* kill horizontal scrollbar */
+    width: 100%;
 }
 
-/* HEADER */
+main {
+    overflow-x: clip;
+    margin-top: 70px;
+    position: relative;
+}
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button { cursor: pointer; font-family: inherit; }
+
+/* ============================================
+   HEADER  (original look preserved)
+============================================ */
 header {
     position: sticky;
     top: 0;
@@ -24,7 +41,6 @@ nav {
     height: 173px;
     margin: auto;
     padding: 0 3%;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -38,12 +54,10 @@ nav {
 
 .links {
     width: 80%;
-
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 15px;
-
     animation: move 1s ease;
 }
 
@@ -54,13 +68,10 @@ nav {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: #4b2f32;
-
     margin: 6px;
 }
 
-.links a:hover {
-    color: gray;
-}
+.links a:hover { color: gray; }
 
 .order-btn {
     border: 2px solid #4b2f32;
@@ -69,39 +80,27 @@ nav {
 }
 
 @keyframes move {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    from { transform: translateY(-50px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
 }
 
-/* MAIN */
-
-main {
-    margin-top: 70px;
-}
-
-/* HERO SECTION */
-
+/* ============================================
+   HERO  (original look preserved)
+============================================ */
 .hero-sec {
     width: 55%;
-    height: 49vh;
     margin: auto;
+    position: relative;
 }
 
 .hero-main {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 
 .hero-text {
     width: 50%;
-    height: 49vh;
     line-height: 1.3;
 }
 
@@ -119,226 +118,171 @@ main {
     color: #291d1e;
 }
 
-.hero-text p {
-    line-height: 1.5;
-}
-
-.hero-text h5 {
-    font-size: medium;
-}
+.hero-text p { line-height: 1.5; }
+.hero-text h5 { font-size: medium; }
 
 .hero-image {
     width: 50%;
-    height: 49vh;
 }
 
 .hero-image img {
     max-width: 100%;
     height: auto;
-    display: block;
 }
 
 /* HERO BUTTONS */
-
 .btn-hero {
     padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 
 .btn-hero button {
     margin: 10px;
     padding: 10px;
-
     border: 2px solid #4b2f32;
     background-color: #fff;
-
     font-family: 'Roboto', sans-serif;
     font-size: medium;
     letter-spacing: 1px;
 }
 
-.btn-hero .c1:hover {
-    background-color: #4b2f32;
-    color: #fff;
-}
+.btn-hero .c1:hover { background-color: #4b2f32; color: #fff; }
+.btn-hero .c2 { background-color: #4b2f32; color: #fff; }
+.btn-hero .c2:hover { background-color: #fff; color: #4b2f32; }
 
-.btn-hero .c2 {
-    background-color: #4b2f32;
-    color: #fff;
-}
-
-.btn-hero .c2:hover {
-    background-color: #fff;
-    color: #4b2f32;
-}
-
-/* BACKGROUND LOGO */
-
+/* ============================================
+   BACKGROUND LOGO  (was causing inner scrollbar)
+============================================ */
 .background-logo {
     position: absolute;
     top: 200px;
     right: 0;
-
     transform: translateX(40%);
     opacity: 0.1;
+    pointer-events: none;
+    z-index: -1;
+    max-width: 100vw;
+    overflow: hidden;       /* clip the oversized logo */
 }
 
 .background-logo img {
     height: 700px;
     width: auto;
+    max-width: none;
 }
 
-/* BORDER IMAGE */
+/* ============================================
+   BORDER IMAGE
+============================================ */
+.border-image img { width: 100%; height: auto; display: block; }
 
-.border-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-/* SMALL SECTION */
-
-.small {
-    height: 50vh;
-    background-color: #392D2F;
-}
+/* ============================================
+   SMALL / DARK SECTION
+============================================ */
+.small { background-color: #392D2F; position: relative; }
 
 .small-1 {
     width: 75%;
-    height: 50vh;
-
     margin: auto;
-    padding: 10px;
-
+    padding: 40px 360px 40px 10px; /* right padding leaves room for floating card */
     background-color: #392D2F;
     color: #fff;
 }
 
-.s1 {
-    margin: 20px 11px;
-}
+.s1 { margin: 20px 11px; }
+.s1 h4 { color: orange; font-size: large; letter-spacing: 1px; }
 
-.s1 h4 {
-    color: orange;
-    font-size: large;
-    letter-spacing: 1px;
-}
-
-.s2 {
-    margin: 10px;
-}
-
-.s2 h1 {
-    font-size: 4.5rem;
-}
+.s2 { margin: 10px; }
+.s2 h1 { font-size: 4.5rem; line-height: 1.1; }
 
 .s3 {
     width: 45%;
-
     margin: 30px 10px;
-
     text-align: justify;
     letter-spacing: 1.5px;
 }
 
-.s3 p {
-    font-size: 1rem;
-}
+.s3 p { font-size: 1rem; }
 
 .btn-s button {
     margin: 6px 30px;
     padding: 10px;
-
     background-color: #4b2f32;
     color: #fff;
-
     border: 2px solid #fff;
     border-radius: 5px;
 }
 
-/* ==========================
+/* ============================================
    SIGNATURE CARD
-========================== */
-
+   was position:absolute bottom:-500px — pulled
+   page height way down and caused overlaps.
+   Now sits naturally in flow.
+============================================ */
 .Signature {
-    position: absolute;
-    right: 150px;
-    bottom: -500px;
+    display: flex;
+    justify-content: flex-end;
+    width: 75%;
+    margin: -360px auto 40px;       /* pulls card up into the dark section, right-aligned */
+    padding-right: 20px;
+    position: relative;
     z-index: 10;
+    pointer-events: none;            /* container ignores pointer; card re-enables it */
 }
+
+.Signature .sig1 { pointer-events: auto; }
 
 .sig1 {
     width: 320px;
+    max-width: 100%;
     background-color: #fff;
-
     border: 1px solid #e5e5e5;
     border-radius: 20px;
-
     overflow: hidden;
-
     box-shadow:
         0 5px 15px rgba(0, 0, 0, 0.08),
         0 15px 35px rgba(0, 0, 0, 0.12);
-
     transition: transform 0.3s ease;
 }
 
-.sig1:hover {
-    transform: translateY(-8px);
-}
-
-/* TOP */
+.sig1:hover { transform: translateY(-8px); }
 
 .top {
     height: 70px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     background-color: tan;
-
     border-bottom: 1px solid #ddd;
-
     font-family: 'Roboto', sans-serif;
     font-weight: 600;
     letter-spacing: 1px;
     color: #4b2f32;
 }
 
-/* MIDDLE */
-
 .middle {
     background-color: #fff;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     padding: 25px;
 }
 
 .middle img {
     width: 100%;
     max-width: 220px;
-    height: auto;
-
-    display: block;
     border-radius: 12px;
 }
 
-/* BOTTOM */
-
 .bottom {
     background-color: #fff;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     text-align: center;
-
     padding: 20px;
 }
 
@@ -346,30 +290,22 @@ main {
     font-family: 'Cormorant Garamond', serif;
     font-size: 28px;
     color: #4b2f32;
-
     margin-bottom: 10px;
 }
 
 .bottom p {
     width: 85%;
-
     color: #555;
-
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
-
     line-height: 1.6;
 }
 
-.bag-img img {
-    width: 500px;
-    height: 689px;
-
-}
-
+/* ============================================
+   BAG SECTION
+============================================ */
 .containerbag {
-    background-color: rgb(32, 7, 7, 0.8);
-
+    background-color: rgba(32, 7, 7, 0.8);
 }
 
 .bag {
@@ -378,120 +314,104 @@ main {
     align-items: center;
     width: 60%;
     margin: auto;
+    gap: 30px;
 }
 
 .bag-img {
     animation: bag 1s;
+    flex-shrink: 0;
+}
+
+.bag-img img {
+    width: 500px;
+    max-width: 100%;
+    height: auto;
 }
 
 @keyframes bag {
-    from {
-        transform: translateX(-500px);
-    }
-
-    to {
-        transform: translateX(0px);
-    }
+    from { transform: translateX(-500px); }
+    to   { transform: translateX(0); }
 }
 
 .bagtext {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     gap: 10px;
     color: white;
     font-size: large;
 }
 
-.bagtext p {
-    text-align: justify;
-}
+.bagtext p { text-align: justify; }
 
 .btn-bag button {
     padding: 10px;
     background-color: #4b2f32;
     border: 1px solid wheat;
     color: white;
+    align-self: flex-start;
 }
 
-.cake {
-    background-color: white;
-}
+/* ============================================
+   CAKE SECTION
+============================================ */
+.cake { background-color: white; }
 
 .cake-main {
     width: 80%;
     margin: auto;
-    height: 70vh;
     display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .cake-text {
-
     width: 50%;
     display: flex;
     flex-direction: column;
-    padding: 150px 10px;
+    padding: 100px 10px;
     gap: 25px;
 }
 
-.cake-text h1 {
-    font-size: 4rem;
-    color: #4b2f32
-}
-
-.cake-text h4 {
-    color: #4b2f32;
-    font-size: x-large;
-}
-
-.cake-text p {
-    text-align: justify;
-    letter-spacing: 1px;
-}
+.cake-text h1 { font-size: 4rem; color: #4b2f32; line-height: 1.1; }
+.cake-text h4 { color: #4b2f32; font-size: x-large; }
+.cake-text p { text-align: justify; letter-spacing: 1px; }
 
 .anchor {
     border: 1px solid #4b2f32;
-    width: 20%;
-    padding: 10px 10px;
+    width: max-content;
+    max-width: 100%;
+    padding: 10px 20px;
     font-size: large;
     color: white;
     background-color: #4b2f32;
     border-radius: 10px;
 }
 
-.anchor a {
-    text-decoration: none;
-    color: white;
+.anchor a { text-decoration: none; color: white; }
 
+.cakeimage {
+    padding: 60px 0;
+    animation: cake 1s;
+    width: 50%;
 }
 
 .cakeimage img {
-
-    height: 477px;
-    width: 662px;
-}
-
-.cakeimage {
-
-    padding: 100px 0px;
-    animation: cake 1s;
+    max-width: 100%;
+    height: auto;
 }
 
 @keyframes cake {
-    from {
-        transform: translateX(450px);
-    }
-
-    to {
-        transform: translateX(0);
-    }
+    from { transform: translateX(450px); }
+    to   { transform: translateX(0); }
 }
 
+/* ============================================
+   LAST (TWO COLUMNS)
+============================================ */
 .last {
     display: flex;
-    height: 50vh;
-
+    min-height: 50vh;
 }
 
 .left,
@@ -503,21 +423,8 @@ main {
     gap: 20px;
 }
 
-.left {
-    background-color: #895B60;
-    color: white;
-
-}
-
-.left h4 {
-    display: flex;
-    justify-content: flex-start;
-}
-
-.right {
-    background-color: #4b2f32;
-    color: white;
-}
+.left  { background-color: #895B60; color: white; }
+.right { background-color: #4b2f32; color: white; }
 
 .left .btn-readmore a,
 .right .btn-readmore a {
@@ -525,125 +432,117 @@ main {
     padding: 10px;
     text-decoration: none;
     color: white;
+    display: inline-block;
+    width: max-content;
 }
 
-footer {
-    background-color: #392D2F;
-}
+/* ============================================
+   FOOTER
+============================================ */
+footer { background-color: #392D2F; }
 
 .ftr {
     display: flex;
     width: 80%;
     margin: auto;
-    gap: 16%;
-    height: 40vh;
-    padding: 120px 0px;
+    gap: 8%;
+    padding: 80px 0;
     color: white;
+    flex-wrap: wrap;
 }
+
+.ftr > * { flex: 1 1 200px; min-width: 0; }
 
 .flogo img {
     height: 200px;
     margin-top: -40px;
-    margin-left: 80px;
     width: auto;
 }
 
 footer p {
     text-align: center;
     color: white;
+    padding: 20px;
 }
 
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+============================================ */
 
-/* Mobile version */
+/* Laptop / small desktop */
+@media (max-width: 1280px) {
+    nav        { width: 90%; }
+    .hero-sec  { width: 85%; }
+    .small-1   { width: 90%; padding-right: 320px; }
+    .Signature { width: 90%; margin-top: -320px; }
+    .bag       { width: 85%; }
+    .cake-main { width: 90%; }
+    .ftr       { width: 90%; gap: 4%; }
+    .left, .right { padding: 70px 60px; }
+}
 
+/* Tablet */
+@media (max-width: 992px) {
+    nav { height: auto; padding: 15px 4%; }
+    .logo img { height: 90px; }
+    .links { width: 100%; flex-wrap: wrap; gap: 8px; }
 
-@media (max-width:425px) {
+    main { margin-top: 30px; }
 
-    .logo img {
-        height: 90px;
-    }
+    .hero-sec  { width: 90%; }
+    .hero-main { flex-direction: column; align-items: center; text-align: center; }
+    .hero-text, .hero-image { width: 100%; height: auto; }
+    .hero-image img { margin: 0 auto; max-width: 400px; }
+    .btn-hero { justify-content: center; }
 
-    .links {
-        flex-direction: column;
-    }
+    .background-logo { display: none; }
 
-    .links a {
-        font-size: 11px;
-    }
+    .small, .small-1 { height: auto; }
+    .small-1 { padding: 40px 20px; }
+    .s3 { width: 100%; }
 
-    main {
-        margin-top: 20px;
-    }
+    .Signature { width: 100%; margin: 20px 0; padding: 0 20px; justify-content: center; }
 
-    .hero-text h1 {
-        font-size: 2.5rem;
-    }
+    .bag { width: 90%; flex-direction: column; text-align: center; }
+    .bagtext { align-items: center; }
+    .btn-bag button { align-self: center; }
 
-    .hero-text p {
-        font-size: 14px;
-    }
+    .cake-main { flex-direction: column; height: auto; }
+    .cake-text, .cakeimage { width: 100%; padding: 40px 0; }
+    .cake-text { align-items: center; text-align: center; }
 
-    .btn-hero {
-        display: flex;
-        flex-direction: column;
-        padding: 0;
-    }
+    .last { flex-direction: column; height: auto; }
+    .left, .right { width: 100%; padding: 50px 40px; }
 
-    .btn-hero button {
-        width: 100%;
-        margin: 5px 0;
-    }
+    .ftr { flex-direction: column; align-items: center; text-align: center; padding: 40px 0; gap: 30px; }
+    .flogo img { margin: 0 auto; height: 160px; }
+}
 
-    .background-logo {
-        display: none;
-    }
+/* Mobile */
+@media (max-width: 480px) {
+    .logo img { height: 70px; }
+    .links a { font-size: 11px; margin: 4px; }
 
-    .s2 h1 {
-        font-size: 2rem;
-    }
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-text p  { font-size: 14px; }
 
-    .s3 p {
-        font-size: 14px;
-    }
+    .btn-hero { flex-direction: column; padding: 0; }
+    .btn-hero button { width: 100%; margin: 5px 0; }
 
-    .sig1 {
-        width: 90%;
-    }
+    .s2 h1 { font-size: 2rem; }
+    .s3 p  { font-size: 14px; }
+    .btn-s button { margin: 6px 0; width: 100%; }
 
-    .bagtext h1 {
-        font-size: 2rem;
-        text-align: center;
-    }
+    .sig1 { width: 100%; }
 
-    .bagtext p {
-        font-size: 15px;
-    }
+    .bagtext h1 { font-size: 2rem; }
+    .bagtext p  { font-size: 15px; }
 
-    .cake-text h1 {
-        font-size: 2rem;
-    }
+    .cake-text h1 { font-size: 2rem; }
+    .cake-text h4 { font-size: 1.1rem; }
 
-    .cake-text h4 {
-        font-size: 1.1rem;
-    }
+    .left, .right { padding: 30px 20px; }
+    .left h1, .right h1 { font-size: 1.8rem; }
 
-    .left,
-    .right {
-        padding: 30px 20px;
-    }
-
-    .left h1,
-    .right h1 {
-        font-size: 1.8rem;
-    }
-
-    .ftr {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    footer p {
-        padding: 20px;
-        font-size: 13px;
-    }
+    footer p { padding: 20px; font-size: 13px; }
 }
